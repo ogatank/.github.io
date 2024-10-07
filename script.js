@@ -21,3 +21,20 @@ for (const link of links) {
         }
     });
 }
+
+let lastScrollTop = 0;
+const header = document.getElementById("main-header");
+
+window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // 下にスクロールしたときにヘッダーを隠す
+        header.classList.add("hidden");
+    } else {
+        // 上にスクロールしたときにヘッダーを表示する
+        header.classList.remove("hidden");
+    }
+    lastScrollTop = currentScroll;
+});
+
